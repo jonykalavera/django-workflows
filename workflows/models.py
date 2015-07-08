@@ -221,6 +221,7 @@ class Transition(models.Model):
 
     class Meta:
         app_label = "workflows"
+        ordering = ('name',)
 
     def __unicode__(self):
         return self.name
@@ -379,6 +380,7 @@ class StatePermissionRelation(models.Model):
 
     class Meta:
         app_label = "workflows"
+        ordering = ('state', 'role')
 
     def __unicode__(self):
         return "%s %s %s" % (self.state.name, self.role.name, self.permission.name)
